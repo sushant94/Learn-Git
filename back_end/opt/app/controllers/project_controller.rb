@@ -7,7 +7,6 @@
         name = getRandomName.gsub(" ","_")
         repo = Repo.create(user_id: current_user.id, name: name+"_git",path: "../../repositories/#{name}_git" )
         `mkdir ../../repositories/#{name}_git`
-        puts "repository created!"
         render nothing: true
     end
 

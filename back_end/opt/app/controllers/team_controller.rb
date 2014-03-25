@@ -42,13 +42,11 @@ class TeamController < ApplicationController
             team = current_user.teams.find_by_course_id(course.id)
             if team
                 team.acceptedInvites+=1
-                puts "Accepted !!!team"
                 if team.acceptedInvites == course.mcount
                     team.users.each do |q|
                         createRepo(q.id,course.id)
                     end
                 end
-                puts team.inspect
                 team.save
             end
         end

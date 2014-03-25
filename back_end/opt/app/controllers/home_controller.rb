@@ -10,8 +10,6 @@ before_filter :getNotifications
     end
 
     def dashboard
-        puts "**"*100
-        puts current_user.inspect
         num1 = current_user.repos.first.order.find_index(current_user.repos.first.status)
         t = current_user.teams.first
         r = Repo.where(team_id: t.id)
@@ -25,9 +23,6 @@ before_filter :getNotifications
             @numA = num2
             @numB = num1
         end
-        # puts "**#{@numA} ** #{@numB}**"
-        puts current_user.inspect
-        puts params[:id]
         @course = Course.find(params[:id])
         unless current_user.repos.nil?
             @stage = @course.stages.find_by_step_number(current_user.repos.first.status)
