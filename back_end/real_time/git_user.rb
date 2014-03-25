@@ -3,13 +3,12 @@ class GitUser
 	attr_accessor :id,:path
 
 	def initialize(id)
-		#check the status and load the question!!
+		#check the status and load the question.
 		@id = id
 		@path = Repo.find(id).path
 	end
 
 	def execute cmd
-		# if cmd ~= 'git clone *'
 		if !cmd.empty?
 			cmd = cmd[3,cmd.length]
 			if(cmd.include?"clone")
@@ -24,25 +23,10 @@ class GitUser
 			end
 		end
 
-		# stdout.each do |line|
-		# 	puts line
-		# 	flag = false
-		# end
-		# unless stderr.nil?
-		# stderr.each do |line|
-		# 	puts line if flag
-		# end
-		#Replace !!!
 	end
 
 
 	def destroy
-		#Commit with a dummy
-
-		#Push it to Github
-
-		#Remove from the db
-
 	end
 
 	def run_clone(cmd)
@@ -53,12 +37,9 @@ class GitUser
 		stdout
 	end
 
-	# def get_content
 
 
 	private
 
 end
 
-# g = GitUser.new
-# g.execute
